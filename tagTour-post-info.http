@@ -1,0 +1,6 @@
+@tagTour_post_info_HostAddress = http://localhost:5205
+
+GET {{tagTour_post_info_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
