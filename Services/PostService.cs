@@ -82,23 +82,20 @@
 
                 var postToUpdate = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post with Id:{id} not found.");
 
-                if (!string.IsNullOrEmpty(updatedPost.Title)) {
-                    postToUpdate.Title = updatedPost.Title;
+                foreach (var property in typeof(UpdatePostDto).GetProperties()) {
+                    var updatedValue = property.GetValue(updatedPost);
+                    if (updatedValue != null && !string.IsNullOrEmpty(updatedValue.ToString())) {
+                        var postProperty = postToUpdate.GetType().GetProperty(property.Name);
+                        postProperty.SetValue(postToUpdate, updatedValue);
+                    }
                 }
-                if (updatedPost.Media != null) {
-                    postToUpdate.Media = updatedPost.Media;
-                }
-                if (updatedPost.Tags != null) {
-                    postToUpdate.Tags = updatedPost.Tags;
-                }
+                    _context.Posts.Update(postToUpdate);
+                    await _context.SaveChangesAsync();
 
-                _context.Posts.Update(postToUpdate);
-                await _context.SaveChangesAsync();
-                serviceResponse.Data = _mapper.Map<GetPostDto>(postToUpdate);
-                serviceResponse.Success = true;
-                serviceResponse.Message = "Post successfully updated";
-
-            } catch (Exception ex) {
+                    serviceResponse.Data = _mapper.Map<GetPostDto>(postToUpdate);
+                    serviceResponse.Success = true;
+                    serviceResponse.Message = "Post successfully updated";
+                }  catch (Exception ex) {
 
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;

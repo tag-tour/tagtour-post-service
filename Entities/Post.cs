@@ -4,7 +4,8 @@
     {
         public int Id { get; set; }
         public required string Title { get; set; }
-        public string[]? Media { get; set; } = ["empty"];
+        public string Description { get; set; }
+        public string[] Media { get; set; }
         public int Likes { get; set; }
         public int Author { get; set; }
         public required string[] Tags { get; set; }
