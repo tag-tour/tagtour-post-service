@@ -2,8 +2,8 @@
 {
     public class UpdatePostDto
     {
-        public required string Title { get; set; }
+        public string? Title { get; set; }
         public string[]? Media { get; set; }
-        public required string[] Tags { get; set; }
+        public string[]? Tags { get; set; }
     }
 }

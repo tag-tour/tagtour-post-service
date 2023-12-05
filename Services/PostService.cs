@@ -81,10 +81,17 @@
             try {
 
                 var postToUpdate = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post with Id:{id} not found.");
-                _mapper.Map(updatedPost, postToUpdate);
-                postToUpdate.Title = updatedPost.Title;
-                postToUpdate.Media = updatedPost.Media;
-                postToUpdate.Tags = updatedPost.Tags;
+
+                if (!string.IsNullOrEmpty(updatedPost.Title)) {
+                    postToUpdate.Title = updatedPost.Title;
+                }
+                if (updatedPost.Media != null) {
+                    postToUpdate.Media = updatedPost.Media;
+                }
+                if (updatedPost.Tags != null) {
+                    postToUpdate.Tags = updatedPost.Tags;
+                }
+
                 _context.Posts.Update(postToUpdate);
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = _mapper.Map<GetPostDto>(postToUpdate);
@@ -92,6 +99,7 @@
                 serviceResponse.Message = "Post successfully updated";
 
             } catch (Exception ex) {
+
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
