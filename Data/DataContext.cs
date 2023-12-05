@@ -1,5 +1,4 @@
-﻿
-namespace tagTour_post_info.Data
+﻿namespace tagTour_post_info.Data
 {
     public class DataContext :DbContext
     {

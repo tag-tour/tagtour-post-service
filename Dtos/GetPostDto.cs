@@ -1,10 +1,10 @@
-﻿namespace tagTour_post_info.Entities
+﻿namespace tagTour_post_info.Dtos
 {
-    public class Post
+    public class GetPostDto
     {
         public int Id { get; set; }
         public required string Title { get; set; }
-        public string[]? Media { get; set; } = ["empty"];
+        public string[]? Media { get; set; }
         public int Likes { get; set; }
         public int Author { get; set; }
         public required string[] Tags { get; set; }
