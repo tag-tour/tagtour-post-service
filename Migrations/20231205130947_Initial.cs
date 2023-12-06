@@ -19,6 +19,7 @@ namespace tagTour_post_info.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
                     Media = table.Column<string[]>(type: "text[]", nullable: false),
                     Likes = table.Column<int>(type: "integer", nullable: false),
                     Author = table.Column<int>(type: "integer", nullable: false),

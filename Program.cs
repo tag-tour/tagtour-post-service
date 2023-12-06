@@ -1,7 +1,9 @@
 global using Microsoft.EntityFrameworkCore;
-global using tagTour_post_info.Entity;
 global using tagTour_post_info.Data;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+global using tagTour_post_info.Dtos;
+global using tagTour_post_info.Services;
+global using tagTour_post_info.Entities;
+global using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddDbContext<DataContext>(options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<IPostService, PostService>();
 
 var app = builder.Build();
 

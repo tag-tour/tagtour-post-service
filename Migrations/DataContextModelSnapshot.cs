@@ -22,7 +22,7 @@ namespace tagTour_post_info.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("tagTour_post_info.Entity.Post", b =>
+            modelBuilder.Entity("tagTour_post_info.Entities.Post", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,11 +36,14 @@ namespace tagTour_post_info.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("Likes")
                         .HasColumnType("integer");
 
                     b.Property<string[]>("Media")
-                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<string[]>("Tags")
