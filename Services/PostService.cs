@@ -21,25 +21,21 @@
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetPostDto>>> DeleteOne(int id)
+        public async Task<ServiceResponse<string>> DeleteOne(int id)
         {
-            var serviceResponse = new ServiceResponse<List<GetPostDto>>();
+            var serviceResponse = new ServiceResponse<string>();
 
             try {
-
                 var post = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post with Id:{id} not found.");
                 _context.Posts.Remove(post);
                 await _context.SaveChangesAsync();
                 var posts = await _context.Posts.ToListAsync();
-                serviceResponse.Data = posts.Select(c => _mapper.Map<GetPostDto>(c)).ToList();
                 serviceResponse.Success = true;
                 serviceResponse.Message = "Post successfully deleted";
 
             } catch(Exception ex) { 
-
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
-
             }
             return serviceResponse;
         }
@@ -47,26 +43,29 @@
         public async Task<ServiceResponse<List<GetPostDto>>> GetAll()
         {
             var serviceResponse = new ServiceResponse<List<GetPostDto>>();
-            var posts = await _context.Posts.ToListAsync();
-            serviceResponse.Data = posts.Select(c => _mapper.Map<GetPostDto>(c)).ToList();
-            serviceResponse.Success = true;
-            serviceResponse.Message = "Posts received successfully";
+            try {
+                var posts = await _context.Posts.ToListAsync() ?? throw new Exception("Posts not found.");
+                serviceResponse.Data = posts.Select(c => _mapper.Map<GetPostDto>(c)).ToList();
+                serviceResponse.Success = true;
+                serviceResponse.Message = "Posts received successfully";
+            }catch(Exception ex) {
+                serviceResponse.Success = false;
+                serviceResponse.Message=ex.Message;
+            }
             return serviceResponse;
         }
 
         public async Task<ServiceResponse<GetPostDto>> GetOne(int id)
         {
             var serviceResponse = new ServiceResponse<GetPostDto>();
-
             try {
 
-                var post = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post with Id:{id} not found.");
+                var post = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post not found.");
                 serviceResponse.Data = _mapper.Map<GetPostDto>(post);
                 serviceResponse.Success = true;
                 serviceResponse.Message = "Post received successfully";
 
             } catch (Exception ex) {
-
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
@@ -79,8 +78,7 @@
             var serviceResponse = new ServiceResponse<GetPostDto>();
 
             try {
-
-                var postToUpdate = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post with Id:{id} not found.");
+                var postToUpdate = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post not found.");
 
                 foreach (var property in typeof(UpdatePostDto).GetProperties()) {
                     var updatedValue = property.GetValue(updatedPost);

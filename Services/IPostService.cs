@@ -6,6 +6,6 @@
         Task<ServiceResponse<GetPostDto>> GetOne(int id);
         Task<ServiceResponse<List<GetPostDto>>> GetAll();
         Task<ServiceResponse<GetPostDto>> UpdateOne(int id,UpdatePostDto updatedPost);
-        Task<ServiceResponse<List<GetPostDto>>> DeleteOne(int id);
+        Task<ServiceResponse<string>> DeleteOne(int id);
     }
 }
