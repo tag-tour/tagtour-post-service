@@ -17,7 +17,7 @@
             await _context.SaveChangesAsync();
             serviceResponse.Data = _mapper.Map<GetPostDto>(post);
             serviceResponse.Success = true;
-            serviceResponse.Message = "Post successfully created";
+            serviceResponse.Message = "Post successfully created.";
             return serviceResponse;
         }
 
@@ -31,7 +31,7 @@
                 await _context.SaveChangesAsync();
                 var posts = await _context.Posts.ToListAsync();
                 serviceResponse.Success = true;
-                serviceResponse.Message = "Post successfully deleted";
+                serviceResponse.Message = "Post successfully deleted.";
 
             } catch(Exception ex) { 
                 serviceResponse.Success = false;
@@ -47,7 +47,7 @@
                 var posts = await _context.Posts.ToListAsync() ?? throw new Exception("Posts not found.");
                 serviceResponse.Data = posts.Select(c => _mapper.Map<GetPostDto>(c)).ToList();
                 serviceResponse.Success = true;
-                serviceResponse.Message = "Posts received successfully";
+                serviceResponse.Message = "Posts received successfully.";
             }catch(Exception ex) {
                 serviceResponse.Success = false;
                 serviceResponse.Message=ex.Message;
@@ -63,7 +63,7 @@
                 var post = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post not found.");
                 serviceResponse.Data = _mapper.Map<GetPostDto>(post);
                 serviceResponse.Success = true;
-                serviceResponse.Message = "Post received successfully";
+                serviceResponse.Message = "Post received successfully.";
 
             } catch (Exception ex) {
                 serviceResponse.Success = false;
@@ -92,7 +92,7 @@
 
                     serviceResponse.Data = _mapper.Map<GetPostDto>(postToUpdate);
                     serviceResponse.Success = true;
-                    serviceResponse.Message = "Post successfully updated";
+                    serviceResponse.Message = "Post successfully updated.";
                 }  catch (Exception ex) {
 
                 serviceResponse.Success = false;

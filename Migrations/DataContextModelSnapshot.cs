@@ -44,6 +44,7 @@ namespace tagTour_post_info.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string[]>("Media")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<string[]>("Tags")
