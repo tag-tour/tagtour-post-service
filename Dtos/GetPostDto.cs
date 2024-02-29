@@ -9,6 +9,6 @@
         public int Likes { get; set; }
         public int Author { get; set; }
         public string[] Tags { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now.ToUniversalTime();
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

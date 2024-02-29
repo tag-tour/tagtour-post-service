@@ -12,7 +12,7 @@ using tagTour_post_info.Data;
 namespace tagTour_post_info.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231205130947_Initial")]
+    [Migration("20240229185153_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -47,6 +47,7 @@ namespace tagTour_post_info.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string[]>("Media")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.Property<string[]>("Tags")
