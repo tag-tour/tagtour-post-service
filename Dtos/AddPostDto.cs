@@ -2,11 +2,10 @@
 {
     public class AddPostDto
     {
-        public required string Title { get; set; }
+        public string Title { get; set; }
         public string? Description { get; set; } = "";
         public string[]? Media { get; set; }
         public int Author { get; set; }
-        public required string[] Tags { get; set; }
+        public string[] Tags { get; set; }
     }
-}   
-            
+}
