@@ -1,8 +1,8 @@
 ﻿namespace tagTour_post_info.Controllers
 {
     [ApiController]
-    [Route("api/post")]
     [Authorize]
+    [Route("api/post")]
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;

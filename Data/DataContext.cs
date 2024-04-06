@@ -4,6 +4,7 @@
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Post> Posts { get; set; }

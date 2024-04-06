@@ -47,10 +47,6 @@ namespace tagTour_post_info.Migrations
                         .IsRequired()
                         .HasColumnType("text[]");
 
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string[]>("Tags")
                         .IsRequired()
                         .HasColumnType("text[]");
