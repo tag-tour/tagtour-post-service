@@ -4,18 +4,21 @@ global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.OpenApi.Models;
+global using Swashbuckle.AspNetCore.Filters;
+global using System.ComponentModel.DataAnnotations;
 global using System.Security.Claims;
 global using System.Text;
 global using tagTour_post_info.Data;
 global using tagTour_post_info.Dtos;
 global using tagTour_post_info.Entities;
 global using tagTour_post_info.Services;
+using tagTour_post_info.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<DataContext>(options =>
@@ -39,8 +42,6 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
     //app.ApplyMigrations();
 }
 
