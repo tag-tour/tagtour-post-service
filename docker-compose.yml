@@ -1,15 +1,6 @@
 ﻿version: '3.4'
 
 services:
-  tagtourposts.api:
-    image: ${DOCKER_REGISTRY-}tagtourpostsapi
-    container_name: tagtourposts.api
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "5000:5000"
-
   tagtourposts.database:
     image: postgres:latest
     container_name: tagtourposts.database
@@ -21,6 +12,16 @@ services:
       - ./.containers/tagtourposts-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  tagtourposts.api:
+    image: ${DOCKER_REGISTRY-}tagtourpostsapi
+    container_name: tagtourposts.api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - tagtourposts.database
+    ports:
+      - "5000:5000"
 
   pgadmin:
     image: dpage/pgadmin4
