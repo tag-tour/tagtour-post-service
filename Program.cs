@@ -13,6 +13,7 @@ global using tagTour_post_info.Data;
 global using tagTour_post_info.Dtos;
 global using tagTour_post_info.Entities;
 global using tagTour_post_info.Services;
+using tagTour_post_info.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,9 +55,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    //app.ApplyMigrations();
 }
 
-app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();

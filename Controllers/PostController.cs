@@ -2,7 +2,7 @@
 {
     [ApiController]
     [Authorize]
-    [Route("api/post")]
+    [Route("post")]
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
@@ -10,6 +10,11 @@
         public PostController(IPostService postService)
         {
             _postService = postService;
+        }
+        [HttpGet("test")]
+        public string test()
+        {
+            return "sdfsdf";
         }
 
         [HttpPost]
@@ -30,7 +35,7 @@
             return Ok(await _postService.GetAll());
         }
 
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public async Task<ActionResult<GetPostDto>> UpdateOne([FromRoute] int id, [FromBody] UpdatePostDto updatedPost)
         {
             return Ok(await _postService.UpdateOne(id, updatedPost));

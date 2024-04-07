@@ -7,7 +7,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <RootNamespace>tagTour_post_info</RootNamespace>
     <UserSecretsId>a80e2325-d130-454f-b87c-9732b605f5fa</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
