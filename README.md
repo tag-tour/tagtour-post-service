@@ -36,7 +36,7 @@
 ```
 ### PATCH /post/:postId
 ```{
-  "title": "zhopa",
+  "title": "ztsedsd",
   "description": "string",
   "media": [
     "string"
