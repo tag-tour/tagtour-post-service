@@ -1,12 +1,14 @@
 # Bearer example
 ## Header 
-```{
+```
+{
   "alg": "HS512",
   "typ": "JWT"
 }
 ```
 ## Payload 
-```{
+```
+{
   "Id":"2343",
   "iat": 1516239022,
   "exp":32444234234
