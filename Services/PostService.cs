@@ -133,4 +133,24 @@ public class PostService : IPostService
         }
         return serviceResponse;
     }
+    public async Task<ServiceResponse<string>> LikePost(int id)
+    {
+        var serviceResponse = new ServiceResponse<string>();
+        try
+        {
+            var uId = _http.HttpContext.User.FindFirstValue("Id") ?? throw new Exception("User not found.");
+            int.TryParse(uId, out int userId);
+            var post = await _context.Posts.FindAsync(id) ?? throw new Exception($"Post not found.");
+            post.Likes += 1;
+            await _context.SaveChangesAsync();
+            serviceResponse.Success = true;
+            serviceResponse.Message = "You liked the post.";
+        }
+        catch (Exception ex)
+        {
+            serviceResponse.Message = ex.Message;
+            serviceResponse.Success = false;
+        }
+        return serviceResponse;
+    }
 }

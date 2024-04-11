@@ -10,4 +10,5 @@ public interface IPostService
     Task<ServiceResponse<GetPostDto>> UpdateOne(int id, UpdatePostDto updatedPost);
 
     Task<ServiceResponse<string>> DeleteOne(int id);
+    Task<ServiceResponse<string>> LikePost(int id);
 }

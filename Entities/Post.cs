@@ -8,5 +8,5 @@ public class Post
     public string[] Media { get; set; }
     public int Likes { get; set; }
     public string[] Tags { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; }
 }
