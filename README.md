@@ -38,12 +38,12 @@
 ```
 ### PATCH /post/:postId
 ```{
-  "title": "ztsedsd",
-  "description": "string",
-  "media": [
+ (optional) "title": "ztsedsd",
+  (optional)"description": "string",
+  (optional)"media": [
     "string"
   ],
-  "tags": [
+ (optional) "tags": [
     "string"
   ]
 }
