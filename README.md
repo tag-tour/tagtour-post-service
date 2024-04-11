@@ -1,11 +1,11 @@
-#Routes (w/ bearer)
+# Routes (w/ bearer)
 ## POST /post - create post.
 ## GET /post/:postId - get post with postId
 ## PATCH /post/:postId - update post with postId
 ## DELETE /post/:postId - delete post with postId
 ## GET /post/test - test endpoint
 
-#Request body
+# Request body
 ## POST /post  
 ```{
   "title": "abobbba",
@@ -30,7 +30,7 @@
   ]
 }
 ```
-#Response body
+# Response body
 ## POST /post 
 ```{
     "data": {
