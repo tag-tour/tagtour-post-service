@@ -1,3 +1,19 @@
+# Bearer example
+## Header 
+```{
+  "alg": "HS512",
+  "typ": "JWT"
+}
+```
+## Payload 
+```{
+  "Id":"2343",
+  "iat": 1516239022,
+  "exp":32444234234
+}
+```
+## Key
+```1231231231231231231231231231231231231231231231231231223123123123123123123231231231231231231233```
 # Routes (w/ bearer)
 ### POST /post - create post.
 ### GET /post/:postId - get post with postId
