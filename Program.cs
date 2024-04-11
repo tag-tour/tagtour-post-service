@@ -6,14 +6,12 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.OpenApi.Models;
 global using Swashbuckle.AspNetCore.Filters;
-global using System.ComponentModel.DataAnnotations;
 global using System.Security.Claims;
 global using System.Text;
 global using tagTour_post_info.Data;
 global using tagTour_post_info.Dtos;
 global using tagTour_post_info.Entities;
 global using tagTour_post_info.Services;
-using tagTour_post_info.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,7 +53,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    //app.ApplyMigrations();
 }
 
 

@@ -1,12 +1,10 @@
-﻿namespace tagTour_post_info
+﻿namespace tagTour_post_info;
+public class AutoMapperProfile : Profile
 {
-    public class AutoMapperProfile : Profile
+    public AutoMapperProfile()
     {
-        public AutoMapperProfile()
-        {
-            CreateMap<Post, GetPostDto>();
-            CreateMap<AddPostDto, Post>();
-            CreateMap<UpdatePostDto, Post>();
-        }
+        CreateMap<Post, GetPostDto>();
+        CreateMap<AddPostDto, Post>();
+        CreateMap<UpdatePostDto, Post>();
     }
 }

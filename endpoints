@@ -1,6 +1,0 @@
-GET /post - get all posts
-GET /post/:postId - get post with :postId
-POST /post - create post 
-DELETE /post/:postId - delete post with :postId
-PATCH /post/:postId - update post with :postId
-GET /post/test - test method 

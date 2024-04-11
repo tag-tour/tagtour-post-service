@@ -1,15 +1,13 @@
-﻿namespace tagTour_post_info.Services
+﻿namespace tagTour_post_info.Services;
+public interface IPostService
 {
-    public interface IPostService
-    {
-        Task<ServiceResponse<GetPostDto>> CreateOne(AddPostDto newPost);
+    Task<ServiceResponse<GetPostDto>> CreateOne(AddPostDto newPost);
 
-        Task<ServiceResponse<GetPostDto>> GetOne(int id);
+    Task<ServiceResponse<GetPostDto>> GetOne(int id);
 
-        Task<ServiceResponse<List<GetPostDto>>> GetAll();
+    Task<ServiceResponse<List<GetPostDto>>> GetAll();
 
-        Task<ServiceResponse<GetPostDto>> UpdateOne(int id, UpdatePostDto updatedPost);
+    Task<ServiceResponse<GetPostDto>> UpdateOne(int id, UpdatePostDto updatedPost);
 
-        Task<ServiceResponse<string>> DeleteOne(int id);
-    }
+    Task<ServiceResponse<string>> DeleteOne(int id);
 }
