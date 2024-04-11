@@ -18,6 +18,7 @@
 ```1231231231231231231231231231231231231231231231231231223123123123123123123231231231231231231233```
 # Routes (w/ bearer)
 ### POST /post - create post.
+### POST /post/:postId - like post with postId
 ### GET /post/:postId - get post with postId
 ### PATCH /post/:postId - update post with postId
 ### DELETE /post/:postId - delete post with postId
@@ -26,12 +27,12 @@
 # Request body
 ### POST /post  
 ```{
-  "title": "abobbba",
+  (Required)"title": "abobbba",
   "description": "string",
   "media": [
     "string"
   ],
-  "tags": [
+  (Required)"tags": [
     "string"
   ]
 }
