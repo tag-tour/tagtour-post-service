@@ -1,12 +1,12 @@
 # Routes (w/ bearer)
-## POST /post - create post.
-## GET /post/:postId - get post with postId
-## PATCH /post/:postId - update post with postId
-## DELETE /post/:postId - delete post with postId
-## GET /post/test - test endpoint
+### POST /post - create post.
+### GET /post/:postId - get post with postId
+### PATCH /post/:postId - update post with postId
+### DELETE /post/:postId - delete post with postId
+### GET /post/test - test endpoint
 
 # Request body
-## POST /post  
+### POST /post  
 ```{
   "title": "abobbba",
   "description": "string",
@@ -18,7 +18,7 @@
   ]
 }
 ```
-## PATCH /post/:postId
+### PATCH /post/:postId
 ```{
   "title": "zhopa",
   "description": "string",
@@ -31,7 +31,7 @@
 }
 ```
 # Response body
-## POST /post 
+### POST /post 
 ```{
     "data": {
         "id": 5,
@@ -51,7 +51,7 @@
     "message": "Post successfully created."
 }
 ```
-## PATCH /post/:postId
+### PATCH /post/:postId
 ```{
     "data": {
         "id": 4,
